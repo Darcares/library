@@ -13,7 +13,7 @@
     <button command="show-modal" commandfor="my-dialog">Add book</button>
 
     <dialog id="my-dialog">
-        <form action="" method="">
+        <form action="" method="" id="form">
             <p>Required fields (*)</p>
             <p>
                 <label for="name">Book's name *</label>
@@ -28,11 +28,11 @@
                 <input type="number" id="pages" name="pages" required>
             </p>
             <p>
-                <label for="read">Read? *</label>
-                <input type="checkbox" id="read" name="read" required>
+                <label for="read">Read?</label>
+                <input type="checkbox" id="read" name="read">
             </p>
-            <button type="submit">Submit book</button>
         </form>
+        <button id="submit" type="submit" form="form">Submit book</button>
         <button commandfor="my-dialog" command="close">Close</button>
     </dialog>
 
