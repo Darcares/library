@@ -6,7 +6,7 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     const bookData = getFormData(form);
     const newBook = new Book(bookData.get("name"), bookData.get("author"), bookData.get("pages"), bookData.get("read"));
-    //addBookToLibrary(newBook);
+    addBookToLibrary(newBook);
     console.log(library);
 });
 
