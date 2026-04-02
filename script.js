@@ -4,7 +4,10 @@ const library = [];
 const form = document.querySelector("#form");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    getFormData(form);
+    const bookData = getFormData(form);
+    const newBook = new Book(bookData.get("name"), bookData.get("author"), bookData.get("pages"), bookData.get("read"));
+    //addBookToLibrary(newBook);
+    console.log(library);
 });
 
 function Book(name, author, pages, read) {
@@ -21,7 +24,6 @@ function addBookToLibrary (book) {
 }
 
 function getFormData(form) {
-   /* const data = new FormData(form);*/
-    
-    console.log("getting data");
+    const bookData = new FormData(form);
+    return bookData;
 }
