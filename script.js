@@ -8,6 +8,7 @@ form.addEventListener("submit", (event) => {
     const bookData = getFormData(form);
     const newBook = new Book(bookData.get("name"), bookData.get("author"), bookData.get("pages"), bookData.get("read") === "on" ? true : false);
     addBookToLibrary(newBook);
+    cleanForm();
     console.log(library);
 });
 
@@ -27,4 +28,16 @@ function addBookToLibrary (book) {
 function getFormData(form) {
     const bookData = new FormData(form);
     return bookData;
+}
+
+function cleanForm() {
+  const name = document.querySelector("#name");  
+  const author = document.querySelector("#author");
+  const pages = document.querySelector("#pages");
+  const read = document.querySelector("#read");
+
+  name.value = "";
+  author.value = "";
+  pages.value = "";
+  read.checked = false;
 }
