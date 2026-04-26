@@ -2,10 +2,11 @@
 
 const library = [];
 const form = document.querySelector("#form");
+
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     const bookData = getFormData(form);
-    const newBook = new Book(bookData.get("name"), bookData.get("author"), bookData.get("pages"), bookData.get("read"));
+    const newBook = new Book(bookData.get("name"), bookData.get("author"), bookData.get("pages"), bookData.get("read") === "on" ? true : false);
     addBookToLibrary(newBook);
     console.log(library);
 });
