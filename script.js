@@ -7,7 +7,7 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
     const bookData = getFormData(form);
     const newBook = new Book(bookData.get("name"), bookData.get("author"), bookData.get("pages"), bookData.get("read") === "on" ? true : false);
-    addBookToLibrary(newBook);
+    library.push(newBook);
     form.reset();
     console.log(library);
 });
@@ -18,10 +18,6 @@ function Book(name, author, pages, read) {
     this.pages = pages;
     this.read = read;
     this.id = crypto.randomUUID();
-}
-
-function addBookToLibrary (book) {
-    library.push(book);
 }
 
 function getFormData(form) {
