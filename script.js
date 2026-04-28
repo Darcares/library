@@ -42,10 +42,10 @@ function printNewBook(book) {
     const toogle = document.createElement("button");
     const del = document.createElement("button");
 
-    name.textContent = book.name;
-    author.textContent = book.author;
-    pages.textContent = book.pages;
-    read.textContent = book.read;
+    name.textContent = `Name: ${book.name}`;
+    author.textContent = `Author: ${book.author}`;
+    pages.textContent = `Pages: ${book.pages}`;
+    read.textContent = `Read?: ${book.read === true ? "Yes" : "No"}`;
     toogle.textContent = book.read === true ? "Not read" : "Read";
     del.textContent = "Delete";
 
@@ -60,7 +60,7 @@ function printNewBook(book) {
 
     toogle.addEventListener("click", (event) => {
         book.toogleReadStatus();
-        read.textContent = book.read;
+        read.textContent = `Read?: ${book.read === true ? "Yes" : "No"}`;
         toogle.textContent = book.read === true ? "Not read" : "Read";
     });
 
