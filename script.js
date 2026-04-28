@@ -23,7 +23,7 @@ function Book(name, author, pages, read) {
     this.id = crypto.randomUUID();
 }
 
-Book.prototype.toogleReadStatus = function() {
+Book.prototype.toogleReadStatus = function () {
     this.read = !this.read;
 }
 
@@ -35,37 +35,44 @@ function getFormData(form) {
 function printLibrary(library) {
 
     library.forEach(book => {
-    
-    const card = document.createElement("div");
-    card.className = "card";
 
-    const name = document.createElement("p");
-    const author = document.createElement("p");
-    const pages = document.createElement("p");
-    const read = document.createElement("p");
-    const toogle = document.createElement("button");
-    const del = document.createElement("button");
+        const card = document.createElement("div");
+        card.className = "card";
 
-    name.textContent = book.name;
-    author.textContent = book.author;
-    pages.textContent = book.pages;
-    read.textContent = book.read;
-    toogle.textContent = book.read === true ? "Not read" : "Read";
-    del.textContent = "Delete";
+        const name = document.createElement("p");
+        const author = document.createElement("p");
+        const pages = document.createElement("p");
+        const read = document.createElement("p");
+        const toogle = document.createElement("button");
+        const del = document.createElement("button");
 
-    card.appendChild(name);
-    card.appendChild(author);
-    card.appendChild(pages);
-    card.appendChild(read);
-    card.appendChild(toogle);
-    card.appendChild(del);
-
-    container.appendChild(card);
-
-    toogle.addEventListener("click", (event) => {
-        book.toogleReadStatus();
+        name.textContent = book.name;
+        author.textContent = book.author;
+        pages.textContent = book.pages;
         read.textContent = book.read;
         toogle.textContent = book.read === true ? "Not read" : "Read";
+        del.textContent = "Delete";
+
+        card.appendChild(name);
+        card.appendChild(author);
+        card.appendChild(pages);
+        card.appendChild(read);
+        card.appendChild(toogle);
+        card.appendChild(del);
+
+        container.appendChild(card);
+
+        toogle.addEventListener("click", (event) => {
+            book.toogleReadStatus();
+            read.textContent = book.read;
+            toogle.textContent = book.read === true ? "Not read" : "Read";
+        });
+
+        del.addEventListener("click", (event) => {
+            container.removeChild(card);
+            const compareIDs = (element) => element.id === book.id;
+            const indexToErase = library.findIndex(compareIDs);
+            library.splice(indexToErase, 1);
         });
     });
 }
