@@ -23,6 +23,10 @@ function Book(name, author, pages, read) {
     this.id = crypto.randomUUID();
 }
 
+Book.prototype.toogleReadStatus = function() {
+    this.read = !this.read;
+}
+
 function getFormData(form) {
     const bookData = new FormData(form);
     return bookData;
@@ -57,6 +61,12 @@ function printLibrary(library) {
     card.appendChild(del);
 
     container.appendChild(card);
+
+    toogle.addEventListener("click", (event) => {
+        book.toogleReadStatus();
+        read.innerText = book.read;
+        toogle.innerText = book.read === true ? "Not read" : "Read";
+        });
     });
 }
 
