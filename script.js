@@ -46,12 +46,12 @@ function printLibrary(library) {
     const toogle = document.createElement("button");
     const del = document.createElement("button");
 
-    name.innerText = book.name;
-    author.innerText = book.author;
-    pages.innerText = book.pages;
-    read.innerText = book.read;
-    toogle.innerText = book.read === true ? "Not read" : "Read";
-    del.innerText = "Delete";
+    name.textContent = book.name;
+    author.textContent = book.author;
+    pages.textContent = book.pages;
+    read.textContent = book.read;
+    toogle.textContent = book.read === true ? "Not read" : "Read";
+    del.textContent = "Delete";
 
     card.appendChild(name);
     card.appendChild(author);
@@ -64,8 +64,8 @@ function printLibrary(library) {
 
     toogle.addEventListener("click", (event) => {
         book.toogleReadStatus();
-        read.innerText = book.read;
-        toogle.innerText = book.read === true ? "Not read" : "Read";
+        read.textContent = book.read;
+        toogle.textContent = book.read === true ? "Not read" : "Read";
         });
     });
 }
