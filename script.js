@@ -59,3 +59,8 @@ function printLibrary(library) {
     container.appendChild(card);
     });
 }
+
+function cleanScreen() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => container.removeChild(card));
+}
