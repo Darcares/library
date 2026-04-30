@@ -42,26 +42,26 @@ function printLibrary() {
         const author = document.createElement("p");
         const pages = document.createElement("p");
         const read = document.createElement("p");
-        const toogle = document.createElement("button");
+        const toggle = document.createElement("button");
         const del = document.createElement("button");
 
         name.textContent = `Name: ${book.name}`;
         author.textContent = `Author: ${book.author}`;
         pages.textContent = `Pages: ${book.pages}`;
         read.textContent = `Read?: ${book.read === true ? "Yes" : "No"}`;
-        toogle.textContent = book.read === true ? "Not read" : "Read";
+        toggle.textContent = book.read === true ? "Not read" : "Read";
         del.textContent = "Delete";
 
         card.appendChild(name);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(read);
-        card.appendChild(toogle);
+        card.appendChild(toggle);
         card.appendChild(del);
 
         container.appendChild(card);
 
-        toogle.addEventListener("click", (event) => {
+        toggle.addEventListener("click", (event) => {
             book.toggleReadStatus();
             printLibrary();
         });
