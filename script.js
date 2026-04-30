@@ -21,7 +21,7 @@ function Book(name, author, pages, read) {
     this.id = crypto.randomUUID();
 }
 
-Book.prototype.toogleReadStatus = function () {
+Book.prototype.toggleReadStatus = function () {
     this.read = !this.read;
 }
 
@@ -62,7 +62,7 @@ function printLibrary() {
         container.appendChild(card);
 
         toogle.addEventListener("click", (event) => {
-            book.toogleReadStatus();
+            book.toggleReadStatus();
             read.textContent = `Read?: ${book.read === true ? "Yes" : "No"}`;
             toogle.textContent = book.read === true ? "Not read" : "Read";
         });
