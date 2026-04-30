@@ -9,7 +9,7 @@ form.addEventListener("submit", (event) => {
     const bookData = getFormData(form);
     const newBook = new Book(bookData.get("name"), bookData.get("author"), bookData.get("pages"), bookData.get("read") === "on" ? true : false);
     library.push(newBook);
-    printNewBook();
+    printLibrary();
     form.reset();
 });
 
@@ -30,7 +30,7 @@ function getFormData(form) {
     return bookData;
 }
 
-function printNewBook() {
+function printLibrary() {
 
     container.innerHTML = "";
 
