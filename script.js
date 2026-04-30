@@ -63,15 +63,14 @@ function printLibrary() {
 
         toogle.addEventListener("click", (event) => {
             book.toggleReadStatus();
-            read.textContent = `Read?: ${book.read === true ? "Yes" : "No"}`;
-            toogle.textContent = book.read === true ? "Not read" : "Read";
+            printLibrary();
         });
 
         del.addEventListener("click", (event) => {
-            container.removeChild(card);
             const compareIDs = (element) => element.id === book.id;
             const indexToErase = library.findIndex(compareIDs);
             library.splice(indexToErase, 1);
+            printLibrary();
         });
     });   
 }   
