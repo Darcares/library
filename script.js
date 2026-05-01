@@ -28,7 +28,7 @@ container.addEventListener("click", (event) => {
             break;
 
         case "delete":
-            const bookIndex = library.find(element => element.id === bookID);
+            const bookIndex = library.findIndex(element => element.id === bookID);
             library.splice(bookIndex, 1);
             printLibrary();
             break;
