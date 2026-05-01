@@ -5,10 +5,10 @@ const form = document.querySelector("#form");
 const container = document.querySelector(".container");
 
 form.addEventListener("submit", (event) => {
-    
+
     event.preventDefault();
     const bookData = getFormData(form);
-    const newBook = new Book(bookData.get("name"), bookData.get("author"), bookData.get("pages"), bookData.get("read") === "on" ? true : false);
+    const newBook = new Book(bookData);
     library.push(newBook);
     printLibrary();
     form.reset();
@@ -39,12 +39,12 @@ container.addEventListener("click", (event) => {
     }
 });
 
-function Book(name, author, pages, read) {
+function Book(bookData) {
 
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+    this.name = bookData.get("name");
+    this.author = bookData.get("author");
+    this.pages = bookData.get("pages");
+    this.read = bookData.get("read");
     this.id = crypto.randomUUID();
 }
 
