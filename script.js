@@ -44,7 +44,7 @@ function Book(bookData) {
     this.name = bookData.get("name");
     this.author = bookData.get("author");
     this.pages = bookData.get("pages");
-    this.read = bookData.get("read");
+    this.read = bookData.get("read") === "on" ? true : false;
     this.id = crypto.randomUUID();
 }
 
