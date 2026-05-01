@@ -11,7 +11,12 @@ function initialize() {
 
         event.preventDefault();
         const bookData = getFormData(form);
-        const newBook = new Book(bookData);
+        const newBook = new Book(
+            bookData.get("name"),
+            bookData.get("author"),
+            bookData.get("pages"),
+            bookData.get("read") === "on" ? true : false,
+        );
         library.push(newBook);
         printLibrary();
         form.reset();
@@ -42,12 +47,12 @@ function initialize() {
         }
     });
 
-    function Book(bookData) {
+    function Book(name, author, pages, read) {
 
-        this.name = bookData.get("name");
-        this.author = bookData.get("author");
-        this.pages = bookData.get("pages");
-        this.read = bookData.get("read") === "on" ? true : false;
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
         this.id = crypto.randomUUID();
     }
 
@@ -55,6 +60,13 @@ function initialize() {
 
         this.read = !this.read;
     }
+
+    // Seed the library with sample books
+    library.push(new Book("The Hobbit", "J.R.R. Tolkien", 295, true));
+    library.push(new Book("Deep Work", "Cal Newport", 304, false));
+    library.push(new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, true));
+    
+    printLibrary();
 
     function getFormData(form) {
 
