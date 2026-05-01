@@ -13,6 +13,31 @@ form.addEventListener("submit", (event) => {
     form.reset();
 });
 
+container.addEventListener("click", (event) => {
+
+    const buttonClass = event.target.className;
+    const bookID = event.target.closest(".card").dataset.id;
+
+    switch(buttonClass) {
+
+        case "toggle": 
+            const book = library.find(element => element.id === bookID);
+            book.toggleReadStatus();
+            printLibrary();
+            break;
+
+        case "delete":
+            const bookIndex = library.find(element => element.id === bookID);
+            library.splice(bookIndex, 1);
+            printLibrary();
+            break;
+
+        default:
+            console.log("Error, no case");
+            break;
+    }
+});
+
 function Book(name, author, pages, read) {
     this.name = name;
     this.author = author;
@@ -37,6 +62,7 @@ function printLibrary() {
     library.forEach(book => {
         const card = document.createElement("div");
         card.className = "card";
+        card.dataset.id = book.id;
 
         const name = document.createElement("p");
         const author = document.createElement("p");
@@ -44,6 +70,9 @@ function printLibrary() {
         const read = document.createElement("p");
         const toggle = document.createElement("button");
         const del = document.createElement("button");
+
+        toggle.className = "toggle";
+        del.className = "delete";
 
         name.textContent = `Name: ${book.name}`;
         author.textContent = `Author: ${book.author}`;
@@ -60,17 +89,5 @@ function printLibrary() {
         card.appendChild(del);
 
         container.appendChild(card);
-
-        toggle.addEventListener("click", (event) => {
-            book.toggleReadStatus();
-            printLibrary();
-        });
-
-        del.addEventListener("click", (event) => {
-            const compareIDs = (element) => element.id === book.id;
-            const indexToErase = library.findIndex(compareIDs);
-            library.splice(indexToErase, 1);
-            printLibrary();
-        });
     });   
 }   
