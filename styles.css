@@ -110,6 +110,15 @@
 
  input[type="text"], input[type="number"] {
     width: 250px;
-    margin-left: auto;
+ }
+
+ #form p {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+ }
+
+ #form label {
+    width: 150px;
  }
 
