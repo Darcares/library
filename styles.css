@@ -6,6 +6,7 @@
     --green-color: #166534;
     --red-color: #B91C1C;
     --white-color: #FFFFFF;
+    --grey-color: #F4F7F9;
  }
  
  html, body {
@@ -13,6 +14,7 @@
  }
 
  body {
+    background-color: var(--grey-color);
     padding: 0 20px 0 20px;
  }
 
@@ -26,6 +28,7 @@
  .card {
     text-align: center;
     border: 1px solid black;
+    background-color: var(--white-color);
     border-radius: 10px;
     box-shadow: 1px 1px 5px;
 
