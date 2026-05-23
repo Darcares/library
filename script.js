@@ -86,7 +86,7 @@ function initialize() {
         card.className = "card";
         card.dataset.id = book.id;
 
-        const name = document.createElement("p");
+        const name = document.createElement("h2");
         const author = document.createElement("p");
         const pages = document.createElement("p");
         const read = document.createElement("p");
@@ -96,7 +96,7 @@ function initialize() {
         toggle.className = "toggle";
         del.className = "delete";
 
-        name.textContent = `Name: ${book.name}`;
+        name.textContent = `${book.name}`;
         author.textContent = `Author: ${book.author}`;
         pages.textContent = `Pages: ${book.pages}`;
         read.textContent = `Read?: ${book.read === true ? "Yes" : "No"}`;
