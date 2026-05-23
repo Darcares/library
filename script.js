@@ -97,9 +97,9 @@ function initialize() {
         del.className = "delete";
 
         name.textContent = `${book.name}`;
-        author.textContent = `Author: ${book.author}`;
-        pages.textContent = `Pages: ${book.pages}`;
-        read.textContent = `Read?: ${book.read === true ? "Yes" : "No"}`;
+        author.setHTML(`<span>Author:</span> ${book.author}`);
+        pages.setHTML(`<span>Pages:</span> ${book.pages}`);
+        read.setHTML(`<span>Read?:</span> ${book.read === true ? "Yes" : "No"}`);
         toggle.textContent = book.read === true ? "Not read" : "Read";
         del.textContent = "Delete";
 
