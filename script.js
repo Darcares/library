@@ -65,6 +65,12 @@ function initialize() {
     library.push(new Book("The Hobbit", "J.R.R. Tolkien", 295, true));
     library.push(new Book("Deep Work", "Cal Newport", 304, false));
     library.push(new Book("The Great Gatsby", "F. Scott Fitzgerald", 180, true));
+    library.push(new Book("1984", "George Orwell", 328, true));
+    library.push(new Book("To Kill a Mockingbird", "Harper Lee", 281, false));
+    library.push(new Book("The Catcher in the Rye", "J.D. Salinger", 277, true));
+    library.push(new Book("Pride and Prejudice", "Jane Austen", 279, false));
+    library.push(new Book("Brave New World", "Aldous Huxley", 268, true));
+    library.push(new Book("The Alchemist", "Paulo Coelho", 208, false));
     
     printLibrary();
 
