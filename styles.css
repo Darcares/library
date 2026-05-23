@@ -108,6 +108,10 @@
     border: 1.5px solid black;
  }
 
+ dialog::backdrop {
+    background-color: rgba(0 0 0 / 0.8);
+ }
+
  input[type="text"], input[type="number"] {
     width: 250px;
  }
@@ -121,4 +125,6 @@
  #form label {
     width: 150px;
  }
+
+
 
