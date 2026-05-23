@@ -29,9 +29,9 @@ function initialize() {
 
         switch(buttonClass) {
 
-            case "toggle": 
+            case "status": 
                 const book = library.find(element => element.id === bookID);
-                book.toggleReadStatus();
+                book.toggleReadStatus(event);
                 printLibrary();
                 break;
 
@@ -56,9 +56,10 @@ function initialize() {
         this.id = crypto.randomUUID();
     }
 
-    Book.prototype.toggleReadStatus = function () {
+    Book.prototype.toggleReadStatus = function (event) {
 
         this.read = !this.read;
+        event.target.dataset.status = this.read === true ? "not-read": "read";
     }
 
     // Seed the library with sample books
@@ -90,24 +91,25 @@ function initialize() {
         const author = document.createElement("p");
         const pages = document.createElement("p");
         const read = document.createElement("p");
-        const toggle = document.createElement("button");
+        const status = document.createElement("button");
         const del = document.createElement("button");
 
-        toggle.className = "toggle";
+        status.className = "status";
+        status.dataset.status = book.read === true ? "not-read" : "read";
         del.className = "delete";
 
         name.textContent = `${book.name}`;
         author.setHTML(`<span>Author:</span> ${book.author}`);
         pages.setHTML(`<span>Pages:</span> ${book.pages}`);
         read.setHTML(`<span>Read?:</span> ${book.read === true ? "Yes" : "No"}`);
-        toggle.textContent = book.read === true ? "Not read" : "Read";
+        status.textContent = book.read === true ? "Not read" : "Read";
         del.textContent = "Delete";
 
         card.appendChild(name);
         card.appendChild(author);
         card.appendChild(pages);
         card.appendChild(read);
-        card.appendChild(toggle);
+        card.appendChild(status);
         card.appendChild(del);
 
         container.appendChild(card);

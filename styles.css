@@ -44,10 +44,6 @@
     margin: 0;
  }
 
- .toggle {
-    margin-right: 20px;
- }
-
  span {
     font-weight: bold;
  }
@@ -63,9 +59,29 @@
  }
 
  .delete {
-    background-color: var(--white-color);
     color: var(--red-color);
     border: 2px solid var(--red-color);
+ }
+
+ .status, .delete {
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    background-color: var(--white-color);
     border-radius: 10px;
-    padding: 5px;
+    padding: 10px;
+ }
+
+ .status {
+    margin-right: 20px;
+ }
+
+ .status[data-status="not-read"] {
+    color: var(--green-color);
+    border: 2px solid var(--green-color)
+ }
+
+  .status[data-status="read"] {
+    color: var(--blue-color);
+    border: 2px solid var(--blue-color)
  }
